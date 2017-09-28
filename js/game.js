@@ -51,6 +51,23 @@ function game() {
 		}
 	}
 
+	if (wallCheck == true) {
+		if (px == tcw + 1 || px == -2 || py == tch + 1 || py == -2) {
+			deathSound.play();
+			prev = high;
+			tail = 4;
+			score = 0;
+			interval = 120;
+			px = 15;
+			py = 10;
+			xv = yv = 0;
+			trail = [];
+			run = setInterval(game, interval);
+			return;
+		}
+
+	}
+
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, canv.width, canv.height);
 
@@ -89,22 +106,6 @@ function game() {
 		}
 	}
 
-	if (wallCheck == true) {
-		if (px == tcw + 1 || px == -2 || py == tch + 1 || py == -2) {
-			deathSound.play();
-			prev = high;
-			tail = 4;
-			score = 0;
-			interval = 120;
-			px = 15;
-			py = 10;
-			xv = yv = 0;
-			trail = [];
-			run = setInterval(game, interval);
-			return;
-		}
-
-	}
 
 
 	trail.push({
