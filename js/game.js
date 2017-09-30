@@ -70,16 +70,6 @@ function game() {
 			py = 0;
 		}
 	}
-	else if (wallCheck == true) {
-		if (px < -1 || px > tcw) {
-			death();
-
-		}
-		else if (py < -1 || py > tch) {
-			death();
-
-		}
-	}
 
 	ctx.fillStyle = "red";
 	ctx.font = "15px Verdana";
@@ -102,6 +92,12 @@ function game() {
 			}
 			death();
 			break;
+		}
+		if (wallCheck == true) {
+			if (trail[i].x < 0 || trail[i].x > tcw - 1||trail[i].y < 0 || trail[i].y > tch - 1) {
+				death();
+				break;
+			}
 		}
 	}
 
